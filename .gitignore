@@ -24,3 +24,5 @@ xcuserdata/
 
 *.framework
 backup/
+
+*.xcodeproj
