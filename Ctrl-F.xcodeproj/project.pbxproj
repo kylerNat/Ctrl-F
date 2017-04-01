@@ -13,22 +13,11 @@
 		368DA3371E8F98220047EBBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368DA3351E8F98220047EBBC /* Main.storyboard */; };
 		368DA3391E8F98220047EBBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368DA3381E8F98220047EBBC /* Assets.xcassets */; };
 		368DA33C1E8F98220047EBBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368DA33A1E8F98220047EBBC /* LaunchScreen.storyboard */; };
-		36BDAFBB1E90077300483129 /* AVCamPhotoCaptureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFB61E90077300483129 /* AVCamPhotoCaptureDelegate.m */; };
 		36BDAFBC1E90077300483129 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFB81E90077300483129 /* AVCamPreviewView.m */; };
-		36BDAFBE1E901A3A00483129 /* AVCamCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFBD1E901A3A00483129 /* AVCamCameraViewController.m */; };
+		36BDAFBF1E901EDA00483129 /* AVCamCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFBD1E901A3A00483129 /* AVCamCameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		36135AB61E8FB68400EAC690 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		36135AB91E8FB6C400EAC690 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		36135ABB1E8FB6CA00EAC690 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		36135ABD1E8FB6D200EAC690 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		36135ABF1E8FB6DA00EAC690 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		36135AC11E8FB6E200EAC690 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		36135AC31E8FB6ED00EAC690 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		36135AC51E8FB6FA00EAC690 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		36135AC71E8FB70200EAC690 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		36135AC91E8FB70C00EAC690 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		36135ACE1E8FB97200EAC690 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Frameworks/opencv2.framework; sourceTree = "<group>"; };
 		368DA3291E8F98210047EBBC /* Ctrl-F.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ctrl-F.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		368DA32D1E8F98220047EBBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,11 +27,8 @@
 		368DA3381E8F98220047EBBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		368DA33B1E8F98220047EBBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		368DA33D1E8F98220047EBBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		368DA3631E8F9AFF0047EBBC /* Ctrl-F.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Ctrl-F.xcodeproj"; sourceTree = "<group>"; };
 		368DA3661E8F9BE20047EBBC /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		36BDAFB31E90077300483129 /* AVCamCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamCameraViewController.h; sourceTree = "<group>"; };
-		36BDAFB51E90077300483129 /* AVCamPhotoCaptureDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPhotoCaptureDelegate.h; sourceTree = "<group>"; };
-		36BDAFB61E90077300483129 /* AVCamPhotoCaptureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPhotoCaptureDelegate.m; sourceTree = "<group>"; };
 		36BDAFB71E90077300483129 /* AVCamPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamPreviewView.h; sourceTree = "<group>"; };
 		36BDAFB81E90077300483129 /* AVCamPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamPreviewView.m; sourceTree = "<group>"; };
 		36BDAFBD1E901A3A00483129 /* AVCamCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamCameraViewController.m; sourceTree = "<group>"; };
@@ -64,17 +50,6 @@
 			isa = PBXGroup;
 			children = (
 				36135ACE1E8FB97200EAC690 /* opencv2.framework */,
-				36135AC91E8FB70C00EAC690 /* Foundation.framework */,
-				36135AC71E8FB70200EAC690 /* UIKit.framework */,
-				36135AC51E8FB6FA00EAC690 /* QuartzCore.framework */,
-				36135AC31E8FB6ED00EAC690 /* CoreVideo.framework */,
-				36135AC11E8FB6E200EAC690 /* CoreMedia.framework */,
-				36135ABF1E8FB6DA00EAC690 /* CoreImage.framework */,
-				36135ABD1E8FB6D200EAC690 /* CoreGraphics.framework */,
-				36135ABB1E8FB6CA00EAC690 /* AVFoundation.framework */,
-				36135AB91E8FB6C400EAC690 /* AssetsLibrary.framework */,
-				36135AB61E8FB68400EAC690 /* Accelerate.framework */,
-				368DA3631E8F9AFF0047EBBC /* Ctrl-F.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,8 +76,6 @@
 			children = (
 				36BDAFBD1E901A3A00483129 /* AVCamCameraViewController.m */,
 				36BDAFB31E90077300483129 /* AVCamCameraViewController.h */,
-				36BDAFB51E90077300483129 /* AVCamPhotoCaptureDelegate.h */,
-				36BDAFB61E90077300483129 /* AVCamPhotoCaptureDelegate.m */,
 				36BDAFB71E90077300483129 /* AVCamPreviewView.h */,
 				36BDAFB81E90077300483129 /* AVCamPreviewView.m */,
 				368DA32F1E8F98220047EBBC /* AppDelegate.h */,
@@ -123,11 +96,6 @@
 				368DA32D1E8F98220047EBBC /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		368DA3641E8F9AFF0047EBBC /* Products */ = {
-			isa = PBXGroup;
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,12 +143,6 @@
 			mainGroup = 368DA3201E8F98210047EBBC;
 			productRefGroup = 368DA32A1E8F98210047EBBC /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 368DA3641E8F9AFF0047EBBC /* Products */;
-					ProjectRef = 368DA3631E8F9AFF0047EBBC /* Ctrl-F.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				368DA3281E8F98210047EBBC /* Ctrl-F */,
@@ -206,11 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36BDAFBB1E90077300483129 /* AVCamPhotoCaptureDelegate.m in Sources */,
+				36BDAFBF1E901EDA00483129 /* AVCamCameraViewController.m in Sources */,
 				36BDAFBC1E90077300483129 /* AVCamPreviewView.m in Sources */,
 				368DA3311E8F98220047EBBC /* AppDelegate.m in Sources */,
 				368DA32E1E8F98220047EBBC /* main.m in Sources */,
-				36BDAFBE1E901A3A00483129 /* AVCamCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
