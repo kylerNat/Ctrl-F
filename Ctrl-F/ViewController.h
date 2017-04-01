@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import <opencv2/videoio/cap_ios.h>
+using namespace cv;
 
+@interface ViewController : UIViewController<CvVideoCameraDelegate>
+{
+    IBOutlet UIImageView* imageView;
+    CvVideoCamera* videoCamera;
+}
+
+@property (nonatomic, retain) CvVideoCamera* videoCamera;
 
 @end
-

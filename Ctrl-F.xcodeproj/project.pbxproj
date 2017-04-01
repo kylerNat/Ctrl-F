@@ -7,52 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36135AB81E8FB6BC00EAC690 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135AB61E8FB68400EAC690 /* Accelerate.framework */; };
+		36135ABA1E8FB6C400EAC690 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135AB91E8FB6C400EAC690 /* AssetsLibrary.framework */; };
+		36135ABC1E8FB6CA00EAC690 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135ABB1E8FB6CA00EAC690 /* AVFoundation.framework */; };
+		36135ABE1E8FB6D200EAC690 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135ABD1E8FB6D200EAC690 /* CoreGraphics.framework */; };
+		36135AC01E8FB6DA00EAC690 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135ABF1E8FB6DA00EAC690 /* CoreImage.framework */; };
+		36135AC21E8FB6E200EAC690 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135AC11E8FB6E200EAC690 /* CoreMedia.framework */; };
+		36135AC41E8FB6ED00EAC690 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135AC31E8FB6ED00EAC690 /* CoreVideo.framework */; };
+		36135AC61E8FB6FA00EAC690 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135AC51E8FB6FA00EAC690 /* QuartzCore.framework */; };
+		36135AC81E8FB70200EAC690 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135AC71E8FB70200EAC690 /* UIKit.framework */; };
+		36135ACA1E8FB70C00EAC690 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135AC91E8FB70C00EAC690 /* Foundation.framework */; };
+		36135ACD1E8FB85600EAC690 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36135ACC1E8FB85600EAC690 /* ViewController.mm */; };
+		36135ACF1E8FB97200EAC690 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135ACE1E8FB97200EAC690 /* opencv2.framework */; };
 		368DA32E1E8F98220047EBBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DA32D1E8F98220047EBBC /* main.m */; };
 		368DA3311E8F98220047EBBC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DA3301E8F98220047EBBC /* AppDelegate.m */; };
-		368DA3341E8F98220047EBBC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DA3331E8F98220047EBBC /* ViewController.m */; };
 		368DA3371E8F98220047EBBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368DA3351E8F98220047EBBC /* Main.storyboard */; };
 		368DA3391E8F98220047EBBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368DA3381E8F98220047EBBC /* Assets.xcassets */; };
 		368DA33C1E8F98220047EBBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368DA33A1E8F98220047EBBC /* LaunchScreen.storyboard */; };
-		368DA3471E8F98220047EBBC /* Ctrl_FTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DA3461E8F98220047EBBC /* Ctrl_FTests.m */; };
-		368DA3521E8F98220047EBBC /* Ctrl_FUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DA3511E8F98220047EBBC /* Ctrl_FUITests.m */; };
-		368DA3621E8F9AFC0047EBBC /* Frameworks in Frameworks */ = {isa = PBXBuildFile; fileRef = 368DA3611E8F9AFC0047EBBC /* Frameworks */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		368DA3431E8F98220047EBBC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 368DA3211E8F98210047EBBC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 368DA3281E8F98210047EBBC;
-			remoteInfo = "Ctrl-F";
-		};
-		368DA34E1E8F98220047EBBC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 368DA3211E8F98210047EBBC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 368DA3281E8F98210047EBBC;
-			remoteInfo = "Ctrl-F";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		36135AB61E8FB68400EAC690 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		36135AB91E8FB6C400EAC690 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		36135ABB1E8FB6CA00EAC690 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		36135ABD1E8FB6D200EAC690 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		36135ABF1E8FB6DA00EAC690 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		36135AC11E8FB6E200EAC690 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		36135AC31E8FB6ED00EAC690 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		36135AC51E8FB6FA00EAC690 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		36135AC71E8FB70200EAC690 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		36135AC91E8FB70C00EAC690 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		36135ACC1E8FB85600EAC690 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		36135ACE1E8FB97200EAC690 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Frameworks/opencv2.framework; sourceTree = "<group>"; };
 		368DA3291E8F98210047EBBC /* Ctrl-F.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ctrl-F.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		368DA32D1E8F98220047EBBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		368DA32F1E8F98220047EBBC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		368DA3301E8F98220047EBBC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		368DA3321E8F98220047EBBC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		368DA3331E8F98220047EBBC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		368DA3361E8F98220047EBBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		368DA3381E8F98220047EBBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		368DA33B1E8F98220047EBBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		368DA33D1E8F98220047EBBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		368DA3421E8F98220047EBBC /* Ctrl-FTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ctrl-FTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		368DA3461E8F98220047EBBC /* Ctrl_FTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ctrl_FTests.m; sourceTree = "<group>"; };
-		368DA3481E8F98220047EBBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		368DA34D1E8F98220047EBBC /* Ctrl-FUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ctrl-FUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		368DA3511E8F98220047EBBC /* Ctrl_FUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ctrl_FUITests.m; sourceTree = "<group>"; };
-		368DA3531E8F98220047EBBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		368DA3611E8F9AFC0047EBBC /* Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Frameworks; sourceTree = "<group>"; };
 		368DA3631E8F9AFF0047EBBC /* Ctrl-F.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Ctrl-F.xcodeproj"; sourceTree = "<group>"; };
 		368DA3661E8F9BE20047EBBC /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,35 +57,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				368DA3621E8F9AFC0047EBBC /* Frameworks in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		368DA33F1E8F98220047EBBC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		368DA34A1E8F98220047EBBC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				36135ACF1E8FB97200EAC690 /* opencv2.framework in Frameworks */,
+				36135ACA1E8FB70C00EAC690 /* Foundation.framework in Frameworks */,
+				36135AC81E8FB70200EAC690 /* UIKit.framework in Frameworks */,
+				36135AC61E8FB6FA00EAC690 /* QuartzCore.framework in Frameworks */,
+				36135AC41E8FB6ED00EAC690 /* CoreVideo.framework in Frameworks */,
+				36135AC21E8FB6E200EAC690 /* CoreMedia.framework in Frameworks */,
+				36135AC01E8FB6DA00EAC690 /* CoreImage.framework in Frameworks */,
+				36135ABE1E8FB6D200EAC690 /* CoreGraphics.framework in Frameworks */,
+				36135ABC1E8FB6CA00EAC690 /* AVFoundation.framework in Frameworks */,
+				36135ABA1E8FB6C400EAC690 /* AssetsLibrary.framework in Frameworks */,
+				36135AB81E8FB6BC00EAC690 /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36135ACB1E8FB71900EAC690 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				36135ACE1E8FB97200EAC690 /* opencv2.framework */,
+				36135AC91E8FB70C00EAC690 /* Foundation.framework */,
+				36135AC71E8FB70200EAC690 /* UIKit.framework */,
+				36135AC51E8FB6FA00EAC690 /* QuartzCore.framework */,
+				36135AC31E8FB6ED00EAC690 /* CoreVideo.framework */,
+				36135AC11E8FB6E200EAC690 /* CoreMedia.framework */,
+				36135ABF1E8FB6DA00EAC690 /* CoreImage.framework */,
+				36135ABD1E8FB6D200EAC690 /* CoreGraphics.framework */,
+				36135ABB1E8FB6CA00EAC690 /* AVFoundation.framework */,
+				36135AB91E8FB6C400EAC690 /* AssetsLibrary.framework */,
+				36135AB61E8FB68400EAC690 /* Accelerate.framework */,
+				368DA3631E8F9AFF0047EBBC /* Ctrl-F.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		368DA3201E8F98210047EBBC = {
 			isa = PBXGroup;
 			children = (
-				368DA3631E8F9AFF0047EBBC /* Ctrl-F.xcodeproj */,
-				368DA3611E8F9AFC0047EBBC /* Frameworks */,
+				36135ACB1E8FB71900EAC690 /* Frameworks */,
 				368DA32B1E8F98210047EBBC /* Ctrl-F */,
-				368DA3451E8F98220047EBBC /* Ctrl-FTests */,
-				368DA3501E8F98220047EBBC /* Ctrl-FUITests */,
 				368DA32A1E8F98210047EBBC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,8 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				368DA3291E8F98210047EBBC /* Ctrl-F.app */,
-				368DA3421E8F98220047EBBC /* Ctrl-FTests.xctest */,
-				368DA34D1E8F98220047EBBC /* Ctrl-FUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,11 +113,10 @@
 		368DA32B1E8F98210047EBBC /* Ctrl-F */ = {
 			isa = PBXGroup;
 			children = (
+				36135ACC1E8FB85600EAC690 /* ViewController.mm */,
 				368DA32F1E8F98220047EBBC /* AppDelegate.h */,
 				368DA3301E8F98220047EBBC /* AppDelegate.m */,
 				368DA3321E8F98220047EBBC /* ViewController.h */,
-				368DA3331E8F98220047EBBC /* ViewController.m */,
-				368DA3661E8F9BE20047EBBC /* PrefixHeader.pch */,
 				368DA3351E8F98220047EBBC /* Main.storyboard */,
 				368DA3381E8F98220047EBBC /* Assets.xcassets */,
 				368DA33A1E8F98220047EBBC /* LaunchScreen.storyboard */,
@@ -125,27 +129,10 @@
 		368DA32C1E8F98210047EBBC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				368DA3661E8F9BE20047EBBC /* PrefixHeader.pch */,
 				368DA32D1E8F98220047EBBC /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		368DA3451E8F98220047EBBC /* Ctrl-FTests */ = {
-			isa = PBXGroup;
-			children = (
-				368DA3461E8F98220047EBBC /* Ctrl_FTests.m */,
-				368DA3481E8F98220047EBBC /* Info.plist */,
-			);
-			path = "Ctrl-FTests";
-			sourceTree = "<group>";
-		};
-		368DA3501E8F98220047EBBC /* Ctrl-FUITests */ = {
-			isa = PBXGroup;
-			children = (
-				368DA3511E8F98220047EBBC /* Ctrl_FUITests.m */,
-				368DA3531E8F98220047EBBC /* Info.plist */,
-			);
-			path = "Ctrl-FUITests";
 			sourceTree = "<group>";
 		};
 		368DA3641E8F9AFF0047EBBC /* Products */ = {
@@ -173,42 +160,6 @@
 			productReference = 368DA3291E8F98210047EBBC /* Ctrl-F.app */;
 			productType = "com.apple.product-type.application";
 		};
-		368DA3411E8F98220047EBBC /* Ctrl-FTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 368DA3591E8F98220047EBBC /* Build configuration list for PBXNativeTarget "Ctrl-FTests" */;
-			buildPhases = (
-				368DA33E1E8F98220047EBBC /* Sources */,
-				368DA33F1E8F98220047EBBC /* Frameworks */,
-				368DA3401E8F98220047EBBC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				368DA3441E8F98220047EBBC /* PBXTargetDependency */,
-			);
-			name = "Ctrl-FTests";
-			productName = "Ctrl-FTests";
-			productReference = 368DA3421E8F98220047EBBC /* Ctrl-FTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		368DA34C1E8F98220047EBBC /* Ctrl-FUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 368DA35C1E8F98220047EBBC /* Build configuration list for PBXNativeTarget "Ctrl-FUITests" */;
-			buildPhases = (
-				368DA3491E8F98220047EBBC /* Sources */,
-				368DA34A1E8F98220047EBBC /* Frameworks */,
-				368DA34B1E8F98220047EBBC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				368DA34F1E8F98220047EBBC /* PBXTargetDependency */,
-			);
-			name = "Ctrl-FUITests";
-			productName = "Ctrl-FUITests";
-			productReference = 368DA34D1E8F98220047EBBC /* Ctrl-FUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -219,14 +170,6 @@
 				TargetAttributes = {
 					368DA3281E8F98210047EBBC = {
 						CreatedOnToolsVersion = 7.3.1;
-					};
-					368DA3411E8F98220047EBBC = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 368DA3281E8F98210047EBBC;
-					};
-					368DA34C1E8F98220047EBBC = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 368DA3281E8F98210047EBBC;
 					};
 				};
 			};
@@ -250,8 +193,6 @@
 			projectRoot = "";
 			targets = (
 				368DA3281E8F98210047EBBC /* Ctrl-F */,
-				368DA3411E8F98220047EBBC /* Ctrl-FTests */,
-				368DA34C1E8F98220047EBBC /* Ctrl-FUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -267,20 +208,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		368DA3401E8F98220047EBBC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		368DA34B1E8F98220047EBBC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -288,42 +215,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				368DA3341E8F98220047EBBC /* ViewController.m in Sources */,
 				368DA3311E8F98220047EBBC /* AppDelegate.m in Sources */,
 				368DA32E1E8F98220047EBBC /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		368DA33E1E8F98220047EBBC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				368DA3471E8F98220047EBBC /* Ctrl_FTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		368DA3491E8F98220047EBBC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				368DA3521E8F98220047EBBC /* Ctrl_FUITests.m in Sources */,
+				36135ACD1E8FB85600EAC690 /* ViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		368DA3441E8F98220047EBBC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 368DA3281E8F98210047EBBC /* Ctrl-F */;
-			targetProxy = 368DA3431E8F98220047EBBC /* PBXContainerItemProxy */;
-		};
-		368DA34F1E8F98220047EBBC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 368DA3281E8F98210047EBBC /* Ctrl-F */;
-			targetProxy = 368DA34E1E8F98220047EBBC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		368DA3351E8F98220047EBBC /* Main.storyboard */ = {
@@ -433,6 +331,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PREFIX_HEADER = "Ctrl-F/PrefixHeader.pch";
 				INFOPLIST_FILE = "Ctrl-F/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-000.Ctrl-F";
@@ -444,56 +347,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				GCC_PREFIX_HEADER = "Ctrl-F/PrefixHeader.pch";
 				INFOPLIST_FILE = "Ctrl-F/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-000.Ctrl-F";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		368DA35A1E8F98220047EBBC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Ctrl-FTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-000.Ctrl-FTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ctrl-F.app/Ctrl-F";
-			};
-			name = Debug;
-		};
-		368DA35B1E8F98220047EBBC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Ctrl-FTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-000.Ctrl-FTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ctrl-F.app/Ctrl-F";
-			};
-			name = Release;
-		};
-		368DA35D1E8F98220047EBBC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Ctrl-FUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-000.Ctrl-FUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Ctrl-F";
-			};
-			name = Debug;
-		};
-		368DA35E1E8F98220047EBBC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Ctrl-FUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-000.Ctrl-FUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = "Ctrl-F";
 			};
 			name = Release;
 		};
@@ -516,22 +378,7 @@
 				368DA3581E8F98220047EBBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		368DA3591E8F98220047EBBC /* Build configuration list for PBXNativeTarget "Ctrl-FTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				368DA35A1E8F98220047EBBC /* Debug */,
-				368DA35B1E8F98220047EBBC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		368DA35C1E8F98220047EBBC /* Build configuration list for PBXNativeTarget "Ctrl-FUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				368DA35D1E8F98220047EBBC /* Debug */,
-				368DA35E1E8F98220047EBBC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
