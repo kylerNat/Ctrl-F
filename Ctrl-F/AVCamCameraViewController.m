@@ -12,6 +12,7 @@
 #import "AVCamPreviewView.h"
 #import "UIOverlayView.h"
 #import "ImageHelper.h"
+#import "vision.h"
 
 static void * SessionRunningContext = &SessionRunningContext;
 
@@ -779,6 +780,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
             self.bitmapData[i+j*width] |= 0x70000000;
         }
     }
+    
     UIImage* uiImage = [ImageHelper convertBitmapRGBA8ToUIImage:((unsigned char *) self.bitmapData)
                                                       withWidth:width
                                                      withHeight:height];

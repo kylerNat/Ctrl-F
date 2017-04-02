@@ -19,6 +19,7 @@
 		8571A80F745087C051212364 /* libPods-Ctrl-F.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5492C5E03101DEEFFA4D1DFB /* libPods-Ctrl-F.a */; };
 		C45988CE1E912A3B003535E3 /* textimg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C45988CD1E912A3B003535E3 /* textimg.jpg */; };
 		C45988D01E914061003535E3 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = C45988CF1E914061003535E3 /* tessdata */; };
+		36BDAFCE1E91095A00483129 /* vision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFCD1E91095A00483129 /* vision.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		58EFD9C20BB49C9649633914 /* Pods-Ctrl-F.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ctrl-F.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ctrl-F/Pods-Ctrl-F.debug.xcconfig"; sourceTree = "<group>"; };
 		C45988CD1E912A3B003535E3 /* textimg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = textimg.jpg; sourceTree = "<group>"; };
 		C45988CF1E914061003535E3 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		36BDAFCC1E91095A00483129 /* vision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vision.h; sourceTree = "<group>"; };
+		36BDAFCD1E91095A00483129 /* vision.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = vision.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 			children = (
 				C45988CF1E914061003535E3 /* tessdata */,
 				C45988CD1E912A3B003535E3 /* textimg.jpg */,
+				36BDAFCC1E91095A00483129 /* vision.h */,
+				36BDAFCD1E91095A00483129 /* vision.mm */,
 				36BDAFC91E90FC5C00483129 /* UIOverlayView.h */,
 				36BDAFCA1E90FC5C00483129 /* UIOverlayView.m */,
 				36BDAFC31E90856300483129 /* ImageHelper.h */,
@@ -253,6 +258,7 @@
 				36BDAFCB1E90FC5C00483129 /* UIOverlayView.m in Sources */,
 				36BDAFBC1E90077300483129 /* AVCamPreviewView.m in Sources */,
 				368DA3311E8F98220047EBBC /* AppDelegate.m in Sources */,
+				36BDAFCE1E91095A00483129 /* vision.mm in Sources */,
 				368DA32E1E8F98220047EBBC /* main.m in Sources */,
 				36BDAFC51E90856300483129 /* ImageHelper.m in Sources */,
 			);

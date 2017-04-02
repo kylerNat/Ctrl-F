@@ -28,3 +28,6 @@ backup/
 *.xcodeproj
 .DS_Store
 tessdata/
+
+**/bin/
+**/obj/
