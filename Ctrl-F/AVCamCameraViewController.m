@@ -57,6 +57,9 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 // Device configuration.
 @property (nonatomic, weak) IBOutlet UIButton *cameraButton;
 @property (nonatomic, weak) IBOutlet UILabel *cameraUnavailableLabel;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapRecognizer;
+
 @property (nonatomic) AVCaptureDeviceDiscoverySession *videoDeviceDiscoverySession;
 
 // Recording movies.
@@ -67,14 +70,20 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 @implementation AVCamCameraViewController
 
 #pragma mark View Controller Life Cycle
+NSString *searchString;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.searchBar.showsScopeBar = YES;
+    self.searchBar.delegate = self;
 	
     // Disable UI. The UI is enabled if and only if the session starts running.
     self.cameraButton.enabled = NO;
     self.captureModeControl.enabled = NO;
+    
 	
     // Create the AVCaptureSession.
     self.session = [[AVCaptureSession alloc] init];
@@ -144,6 +153,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
             [self configureSession];
 	} );
 }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -226,6 +236,21 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 #pragma mark Session Management
 
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.searchBar resignFirstResponder];
+    searchString = searchBar.text;
+    NSLog(@"%@",searchString);
+    
+    //Perform search
+}
+
+
+-(void)dismissKeyboard {
+    [self.searchBar resignFirstResponder];
+}
+
+
 // Call this on the session queue.
 - (void)configureSession
 {
@@ -236,6 +261,12 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
     NSError *error = nil;
 	
     [self.session beginConfiguration];
+    
+    self.tapRecognizer = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.previewView addGestureRecognizer:self.tapRecognizer];
     
     // Add video input.
 	
@@ -326,7 +357,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 {
     self.cameraButton.enabled = NO;
     self.captureModeControl.enabled = NO;
-	
+    
     dispatch_async( self.sessionQueue, ^{
             AVCaptureDevice *currentVideoDevice = self.videoDeviceInput.device;
             AVCaptureDevicePosition currentPosition = currentVideoDevice.position;
@@ -393,7 +424,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
             
             dispatch_async( dispatch_get_main_queue(), ^{
                     self.cameraButton.enabled = YES;
-                    self.captureModeControl.enabled = YES;
+                    self.captureModeControl.enabled = NO;
 		} );
 	} );
 }
