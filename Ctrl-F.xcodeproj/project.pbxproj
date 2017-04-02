@@ -17,6 +17,7 @@
 		36BDAFBF1E901EDA00483129 /* AVCamCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFBD1E901A3A00483129 /* AVCamCameraViewController.m */; };
 		36BDAFC51E90856300483129 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFC41E90856300483129 /* ImageHelper.m */; };
 		36BDAFCB1E90FC5C00483129 /* UIOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFCA1E90FC5C00483129 /* UIOverlayView.m */; };
+		36BDAFCE1E91095A00483129 /* vision.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFCD1E91095A00483129 /* vision.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		36BDAFC41E90856300483129 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
 		36BDAFC91E90FC5C00483129 /* UIOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOverlayView.h; sourceTree = "<group>"; };
 		36BDAFCA1E90FC5C00483129 /* UIOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIOverlayView.m; sourceTree = "<group>"; };
+		36BDAFCC1E91095A00483129 /* vision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vision.h; sourceTree = "<group>"; };
+		36BDAFCD1E91095A00483129 /* vision.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = vision.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 		368DA32B1E8F98210047EBBC /* Ctrl-F */ = {
 			isa = PBXGroup;
 			children = (
+				36BDAFCC1E91095A00483129 /* vision.h */,
+				36BDAFCD1E91095A00483129 /* vision.mm */,
 				36BDAFC91E90FC5C00483129 /* UIOverlayView.h */,
 				36BDAFCA1E90FC5C00483129 /* UIOverlayView.m */,
 				36BDAFC31E90856300483129 /* ImageHelper.h */,
@@ -182,6 +187,7 @@
 				36BDAFCB1E90FC5C00483129 /* UIOverlayView.m in Sources */,
 				36BDAFBC1E90077300483129 /* AVCamPreviewView.m in Sources */,
 				368DA3311E8F98220047EBBC /* AppDelegate.m in Sources */,
+				36BDAFCE1E91095A00483129 /* vision.mm in Sources */,
 				368DA32E1E8F98220047EBBC /* main.m in Sources */,
 				36BDAFC51E90856300483129 /* ImageHelper.m in Sources */,
 			);

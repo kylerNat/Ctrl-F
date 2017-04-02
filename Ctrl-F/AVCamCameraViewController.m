@@ -12,6 +12,7 @@
 #import "AVCamPreviewView.h"
 #import "UIOverlayView.h"
 #import "ImageHelper.h"
+#import "vision.h"
 
 static void * SessionRunningContext = &SessionRunningContext;
 
@@ -727,20 +728,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         NSLog(@"Error getting bitmap pixel data\n");
     }
     
-    NSLog(@"Pixel %d",self.bitmapData[0]&0xFF);
-
-    //TODO: run vision code here
-    // for(int i = 0; i < width; i++)
-    // {
-    //     for(int j = 0; j < height; j++)
-    //     {
-    //         self.bitmapData[i+j*width] &= 0x30FFFFFF;
-            
-    //         // self.bitmapData[i+j*width]>>=8*((i+j)%4);
-    //         // self.bitmapData[i+j*width] &= 0xFFFFFF00;
-    //         // self.bitmapData[i+j*width] |= 0xFF;
-    //     }
-    // }
+    // NSLog(@"Pixel %d",self.bitmapData[0]&0xFF);
+    
+    [Vision ProcessImage: self.bitmapData width:width height:height searchText:"option"];
     
     UIImage* uiImage = [ImageHelper convertBitmapRGBA8ToUIImage:((unsigned char *) self.bitmapData)
                                                       withWidth:width
