@@ -59,7 +59,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
         if ( ! [uniqueDevicePositions containsObject:@(device.position)] ) {
             [uniqueDevicePositions addObject:@(device.position)];
 
-            [self configureCameraForHighestFrameRate: device];
+            //[self configureCameraForHighestFrameRate: device];
         }
     }
 	
@@ -100,11 +100,13 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 @end
 
+NSString *searchString;
+G8Tesseract *tesseract;
+
+
 @implementation AVCamCameraViewController
 
 #pragma mark View Controller Life Cycle
-NSString *searchString;
-
 
 - (void)viewDidLoad
 {
@@ -112,6 +114,10 @@ NSString *searchString;
     
     self.searchBar.showsScopeBar = YES;
     self.searchBar.delegate = self;
+    
+    tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng"];
+    tesseract.delegate = self;
+    tesseract.charWhitelist = @"0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ";
 	
     // Disable UI. The UI is enabled if and only if the session starts running.
     self.cameraButton.enabled = NO;
@@ -187,7 +193,19 @@ NSString *searchString;
     dispatch_async( self.sessionQueue, ^{
             [self configureSession];
 	} );
+    /*
+    tesseract.image = [[UIImage imageNamed:@"textimg.jpg"] g8_blackAndWhite];
+    
+    [tesseract recognize];
+    
+    while([tesseract progress] < 95) {
+        usleep(5000);
+    }
+    
+    NSLog(@"%@", [tesseract recognizedText]);*/
 }
+
+
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -286,6 +304,15 @@ NSString *searchString;
 }
 
 
+- (void)progressImageRecognitionForTesseract:(G8Tesseract *)tesseract {
+    //NSLog(@"progress: %lu", (unsigned long)tesseract.progress);
+}
+
+- (BOOL)shouldCancelImageRecognitionForTesseract:(G8Tesseract *)tesseract {
+    return NO;  // return YES, if you need to interrupt tesseract before it finishes
+}
+
+
 // Call this on the session queue.
 - (void)configureSession
 {
@@ -360,7 +387,7 @@ NSString *searchString;
         self.videoOutput = videoOutput;
         videoOutput.videoSettings =
             @{ (NSString *)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA) };
-        //[videoOutput connectionWithMediaType:AVMediaTypeVideo].videoMinFrameDuration = CMTimeMake(1, 60);
+        [videoOutput connectionWithMediaType:AVMediaTypeVideo].videoMinFrameDuration = CMTimeMake(1, 30);
 
         self.outputQueue = dispatch_queue_create("OutputQueue", NULL);
         [videoOutput setSampleBufferDelegate:self queue:self.outputQueue];
@@ -727,7 +754,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         NSLog(@"Error getting bitmap pixel data\n");
     }
     
-    NSLog(@"Pixel %d",self.bitmapData[0]&0xFF);
+    //NSLog(@"Pixel %d",self.bitmapData[0]&0xFF);
 
     //TODO: run vision code here
     // for(int i = 0; i < width; i++)
@@ -741,14 +768,24 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     //         // self.bitmapData[i+j*width] |= 0xFF;
     //     }
     // }
-    
+    for(int i = 0; i < width; i++)
+    {
+        for (int j = 0; j < height; j++) {
+            int red = self.bitmapData[i+j*width] & 0x000000FF;
+            red *= 2;
+            self.bitmapData[i+j*width] &= 0xFFFFFF00;
+            self.bitmapData[i+j*width] |= red&0xFF;
+            self.bitmapData[i+j*width] &= 0x00FFFFFF;
+            self.bitmapData[i+j*width] |= 0x70000000;
+        }
+    }
     UIImage* uiImage = [ImageHelper convertBitmapRGBA8ToUIImage:((unsigned char *) self.bitmapData)
                                                       withWidth:width
                                                      withHeight:height];
     
-    CGFloat nativeWidth = CGImageGetWidth(uiImage.CGImage);
-    CGFloat nativeHeight = CGImageGetHeight(uiImage.CGImage);
-    CGRect startFrame = CGRectMake(0.0, 0.0, nativeHeight/2, nativeWidth/2);
+    CGFloat nativeWidth = self.overlayView.bounds.size.width;
+    CGFloat nativeHeight = self.overlayView.bounds.size.height;
+    CGRect startFrame = CGRectMake(0.0, 0.0, nativeHeight, nativeWidth);
     
     #define degrees (3.14159265358979323846264338327950/180.0)
     
@@ -764,6 +801,16 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     #undef degrees
     
     CGContextRelease(context);
+    
+    tesseract.image = uiImage;
+    
+    [tesseract recognize];
+    
+    /*while([tesseract progress] < 95) {
+        usleep(5000);
+    }*/
+    
+    NSLog(@"%@", [tesseract recognizedText]);
 }
 
 @end

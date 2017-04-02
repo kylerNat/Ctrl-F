@@ -7,7 +7,9 @@
 */
 
 @import UIKit;
+#import <TesseractOCR/TesseractOCR.h>
 
-@interface AVCamCameraViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
+
+@interface AVCamCameraViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate, UISearchBarDelegate, UISearchDisplayDelegate, G8TesseractDelegate>
 
 @end
