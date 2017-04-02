@@ -27,3 +27,4 @@ backup/
 
 *.xcodeproj
 .DS_Store
+tessdata/
