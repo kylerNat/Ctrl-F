@@ -27,3 +27,6 @@ backup/
 
 *.xcodeproj
 .DS_Store
+
+**/bin/
+**/obj/
