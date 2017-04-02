@@ -10,6 +10,7 @@
 
 #import "AVCamCameraViewController.h"
 #import "AVCamPreviewView.h"
+#import "ImageHelper.h"
 
 static void * SessionRunningContext = &SessionRunningContext;
 
@@ -27,6 +28,28 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 @implementation AVCaptureDeviceDiscoverySession (Utilities)
 
+- (void)configureCameraForHighestFrameRate:(AVCaptureDevice *)device
+{
+    AVCaptureDeviceFormat *bestFormat = nil;
+    AVFrameRateRange *bestFrameRateRange = nil;
+    for ( AVCaptureDeviceFormat *format in [device formats] ) {
+        for ( AVFrameRateRange *range in format.videoSupportedFrameRateRanges ) {
+            if ( range.maxFrameRate > bestFrameRateRange.maxFrameRate ) {
+                bestFormat = format;
+                bestFrameRateRange = range;
+            }
+        }
+    }
+    if ( bestFormat ) {
+        if ( [device lockForConfiguration:NULL] == YES ) {
+            device.activeFormat = bestFormat;
+            device.activeVideoMinFrameDuration = bestFrameRateRange.minFrameDuration;
+            device.activeVideoMaxFrameDuration = bestFrameRateRange.minFrameDuration;
+            [device unlockForConfiguration];
+        }
+    }
+}
+
 - (NSInteger)uniqueDevicePositionsCount
 {
     NSMutableArray<NSNumber *> *uniqueDevicePositions = [NSMutableArray array];
@@ -34,6 +57,8 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
     for ( AVCaptureDevice *device in self.devices ) {
         if ( ! [uniqueDevicePositions containsObject:@(device.position)] ) {
             [uniqueDevicePositions addObject:@(device.position)];
+
+            [self configureCameraForHighestFrameRate: device];
         }
     }
 	
@@ -54,6 +79,9 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 @property (nonatomic, getter=isSessionRunning) BOOL sessionRunning;
 @property (nonatomic) AVCaptureDeviceInput *videoDeviceInput;
 
+@property (nonatomic) dispatch_queue_t outputQueue;
+@property (nonatomic) AVCaptureVideoDataOutput *videoOutput;
+
 // Device configuration.
 @property (nonatomic, weak) IBOutlet UIButton *cameraButton;
 @property (nonatomic, weak) IBOutlet UILabel *cameraUnavailableLabel;
@@ -61,6 +89,9 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 // Recording movies.
 @property (nonatomic, weak) IBOutlet UIButton *resumeButton;
+
+//CV buffer
+@property uint32_t * bitmapData;
 
 @end
 
@@ -82,15 +113,17 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
     // Create a device discovery session.
     NSArray<AVCaptureDeviceType> *deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInDuoCamera];
     self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionUnspecified];
-	
+    
+    self.bitmapData = (uint32_t *) malloc(100*1024*1024);//TODO: should probably just set this to the largest camera
+    
     // Set up the preview view.
     self.previewView.session = self.session;
-	
+    
     // Communicate with the session and other session objects on this queue.
     self.sessionQueue = dispatch_queue_create( "session queue", DISPATCH_QUEUE_SERIAL );
-	
+    
     self.setupResult = AVCamSetupResultSuccess;
-	
+    
     /*
       Check video authorization status. Video access is required and audio
       access is optional. If audio access is denied, audio is not recorded
@@ -288,6 +321,25 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
         return;
     }
     
+    AVCaptureVideoDataOutput * videoOutput = [[AVCaptureVideoDataOutput alloc] init];
+    if ( [self.session canAddOutput:videoOutput] ) {
+        [self.session addOutput:videoOutput];
+        self.videoOutput = videoOutput;
+        videoOutput.videoSettings =
+            @{ (NSString *)kCVPixelBufferPixelFormatTypeKey : @(kCVPixelFormatType_32BGRA) };
+        //[videoOutput connectionWithMediaType:AVMediaTypeVideo].videoMinFrameDuration = CMTimeMake(1, 60);
+
+        self.outputQueue = dispatch_queue_create("OutputQueue", NULL);
+        [videoOutput setSampleBufferDelegate:self queue:self.outputQueue];
+        //dispatch_release(self.outputQueue);
+    }
+    else {
+        NSLog( @"Could not add video output to the session" );
+        self.setupResult = AVCamSetupResultSessionConfigurationFailed;
+        [self.session commitConfiguration];
+        return;
+    }
+    
     [self.session commitConfiguration];
 }
 
@@ -326,7 +378,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 {
     self.cameraButton.enabled = NO;
     self.captureModeControl.enabled = NO;
-	
+            
     dispatch_async( self.sessionQueue, ^{
             AVCaptureDevice *currentVideoDevice = self.videoDeviceInput.device;
             AVCaptureDevicePosition currentPosition = currentVideoDevice.position;
@@ -349,7 +401,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 		
             NSArray<AVCaptureDevice *> *devices = self.videoDeviceDiscoverySession.devices;
             AVCaptureDevice *newVideoDevice = nil;
-		
+            
             // First, look for a device with both the preferred position and device type.
             for ( AVCaptureDevice *device in devices ) {
                 if ( device.position == preferredPosition && [device.deviceType isEqualToString:preferredDeviceType] ) {
@@ -565,6 +617,89 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
                 self.cameraUnavailableLabel.hidden = YES;
             }];
     }
+}
+
+// Create a UIImage from sample buffer data
+- (UIImage *) imageFromSampleBuffer:(CMSampleBufferRef) sampleBuffer
+{
+    // Get a CMSampleBuffer's Core Video image buffer for the media data
+    CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    // Lock the base address of the pixel buffer
+    CVPixelBufferLockBaseAddress(imageBuffer, 0);
+ 
+    // Get the number of bytes per row for the pixel buffer
+    void *baseAddress = CVPixelBufferGetBaseAddress(imageBuffer);
+ 
+    // Get the number of bytes per row for the pixel buffer
+    size_t bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer);
+    // Get the pixel buffer width and height
+    size_t width = CVPixelBufferGetWidth(imageBuffer);
+    size_t height = CVPixelBufferGetHeight(imageBuffer);
+ 
+    // Create a device-dependent RGB color space
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+ 
+    // Create a bitmap graphics context with the sample buffer data
+    CGContextRef context = CGBitmapContextCreate(baseAddress, width, height, 8,
+      bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+    // Create a Quartz image from the pixel data in the bitmap graphics context
+    CGImageRef quartzImage = CGBitmapContextCreateImage(context);
+    // Unlock the pixel buffer
+    CVPixelBufferUnlockBaseAddress(imageBuffer,0);
+ 
+    // Free up the context and color space
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
+ 
+    // Create an image object from the Quartz image
+    UIImage *image = [UIImage imageWithCGImage:quartzImage];
+ 
+    // Release the Quartz image
+    CGImageRelease(quartzImage);
+ 
+    return (image);
+}
+
+- (void)captureOutput:(AVCaptureOutput *)captureOutput
+didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
+       fromConnection:(AVCaptureConnection *)connection {
+    
+    UIImage *image = [self imageFromSampleBuffer: sampleBuffer];
+    
+    CGImageRef imageRef = image.CGImage;
+	
+    // Create a bitmap context to draw the uiimage into
+    CGContextRef context = [ImageHelper newBitmapRGBA8ContextFromImage: self.bitmapData image:imageRef];
+	
+    if(!context) {
+        NSLog(@"Error getting image context");
+        return;
+    }
+	
+    size_t width = CGImageGetWidth(imageRef);
+    size_t height = CGImageGetHeight(imageRef);
+	
+    CGRect rect = CGRectMake(0, 0, width, height);
+	
+    // Draw image into the context to get the raw image data
+    CGContextDrawImage(context, rect, imageRef);
+	
+    // Get a pointer to the data	
+    unsigned char *bitmapData = (unsigned char *) CGBitmapContextGetData(context);
+    
+    // Copy the data and release the memory (return memory allocated with new)
+    size_t bytesPerRow = CGBitmapContextGetBytesPerRow(context);
+    size_t bufferLength = bytesPerRow * height;
+    
+    if(!bitmapData) {
+        NSLog(@"Error getting bitmap pixel data\n");
+    }
+    
+    CGContextRelease(context);
+    
+    NSLog(@"Pixel %d",bitmapData[0]);
+    
+    //free(bitmapData);
 }
 
 @end

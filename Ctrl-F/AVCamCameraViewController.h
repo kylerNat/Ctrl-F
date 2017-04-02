@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface AVCamCameraViewController : UIViewController
+@interface AVCamCameraViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @end
