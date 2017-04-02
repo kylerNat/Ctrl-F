@@ -10,12 +10,13 @@
 		36135ACF1E8FB97200EAC690 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36135ACE1E8FB97200EAC690 /* opencv2.framework */; };
 		368DA32E1E8F98220047EBBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DA32D1E8F98220047EBBC /* main.m */; };
 		368DA3311E8F98220047EBBC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DA3301E8F98220047EBBC /* AppDelegate.m */; };
-		368DA3371E8F98220047EBBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368DA3351E8F98220047EBBC /* Main.storyboard */; settings = {ASSET_TAGS = (myTextField, ); }; };
+		368DA3371E8F98220047EBBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368DA3351E8F98220047EBBC /* Main.storyboard */; };
 		368DA3391E8F98220047EBBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 368DA3381E8F98220047EBBC /* Assets.xcassets */; };
 		368DA33C1E8F98220047EBBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 368DA33A1E8F98220047EBBC /* LaunchScreen.storyboard */; };
 		36BDAFBC1E90077300483129 /* AVCamPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFB81E90077300483129 /* AVCamPreviewView.m */; };
 		36BDAFBF1E901EDA00483129 /* AVCamCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFBD1E901A3A00483129 /* AVCamCameraViewController.m */; };
 		36BDAFC51E90856300483129 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFC41E90856300483129 /* ImageHelper.m */; };
+		36BDAFCB1E90FC5C00483129 /* UIOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BDAFCA1E90FC5C00483129 /* UIOverlayView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		36BDAFBD1E901A3A00483129 /* AVCamCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamCameraViewController.m; sourceTree = "<group>"; };
 		36BDAFC31E90856300483129 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
 		36BDAFC41E90856300483129 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
+		36BDAFC91E90FC5C00483129 /* UIOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIOverlayView.h; sourceTree = "<group>"; };
+		36BDAFCA1E90FC5C00483129 /* UIOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIOverlayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 		368DA32B1E8F98210047EBBC /* Ctrl-F */ = {
 			isa = PBXGroup;
 			children = (
+				36BDAFC91E90FC5C00483129 /* UIOverlayView.h */,
+				36BDAFCA1E90FC5C00483129 /* UIOverlayView.m */,
 				36BDAFC31E90856300483129 /* ImageHelper.h */,
 				36BDAFC41E90856300483129 /* ImageHelper.m */,
 				36BDAFBD1E901A3A00483129 /* AVCamCameraViewController.m */,
@@ -129,15 +134,11 @@
 		368DA3211E8F98210047EBBC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				KnownAssetTags = (
-					myTextField,
-				);
 				LastUpgradeCheck = 0830;
 				TargetAttributes = {
 					368DA3281E8F98210047EBBC = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = T3YFPJWSRM;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = S63ZZ3JF5F;
 					};
 				};
 			};
@@ -178,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36BDAFBF1E901EDA00483129 /* AVCamCameraViewController.m in Sources */,
+				36BDAFCB1E90FC5C00483129 /* UIOverlayView.m in Sources */,
 				36BDAFBC1E90077300483129 /* AVCamPreviewView.m in Sources */,
 				368DA3311E8F98220047EBBC /* AppDelegate.m in Sources */,
 				368DA32E1E8F98220047EBBC /* main.m in Sources */,
@@ -230,7 +232,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = T3YFPJWSRM;
+				DEVELOPMENT_TEAM = S63ZZ3JF5F;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -279,7 +281,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = T3YFPJWSRM;
+				DEVELOPMENT_TEAM = S63ZZ3JF5F;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -303,8 +305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = T3YFPJWSRM;
+				DEVELOPMENT_TEAM = S63ZZ3JF5F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -312,7 +313,7 @@
 				GCC_PREFIX_HEADER = "Ctrl-F/PrefixHeader.pch";
 				INFOPLIST_FILE = "Ctrl-F/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ctrl-f.Ctrl-F";
+				PRODUCT_BUNDLE_IDENTIFIER = "-ctrlf.Ctrl-F";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -321,8 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = T3YFPJWSRM;
+				DEVELOPMENT_TEAM = S63ZZ3JF5F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -330,7 +330,7 @@
 				GCC_PREFIX_HEADER = "Ctrl-F/PrefixHeader.pch";
 				INFOPLIST_FILE = "Ctrl-F/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ctrl-f.Ctrl-F";
+				PRODUCT_BUNDLE_IDENTIFIER = "-ctrlf.Ctrl-F";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -105,13 +105,13 @@
 		return nil;
 	}
 	
-	CGContextRef context = CGBitmapContextCreate(pixels, 
-				 width, 
-				 height, 
-				 bitsPerComponent, 
-				 bytesPerRow, 
-				 colorSpaceRef, 
-				 bitmapInfo); 
+	CGContextRef context = CGBitmapContextCreate(pixels,
+				 width,
+				 height,
+				 bitsPerComponent,
+				 bytesPerRow,
+				 colorSpaceRef,
+				 bitmapInfo);
 	
 	if(context == NULL) {
 		NSLog(@"Error context not created");
@@ -133,8 +133,8 @@
 			image = [UIImage imageWithCGImage:imageRef];
 		}
 		
-		CGImageRelease(imageRef);	
-		CGContextRelease(context);	
+		CGImageRelease(imageRef);
+		CGContextRelease(context);
 	}
 	
 	CGColorSpaceRelease(colorSpaceRef);
@@ -143,7 +143,8 @@
 	
 	if(pixels) {
 		free(pixels);
-	}	
+	}
+        
 	return image;
 }
 

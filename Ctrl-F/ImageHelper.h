@@ -14,12 +14,6 @@
 	
 }
 
-/** Converts a UIImage to RGBA8 bitmap.
- @param image - a UIImage to be converted
- @return a RGBA8 bitmap, or NULL if any memory allocation issues. Cleanup memory with free() when done.
- */
-+ (unsigned char *) convertUIImageToBitmapRGBA8:(UIImage *)image;
-
 /** A helper routine used to convert a RGBA8 to UIImage
  @return a new context that is owned by the caller
  */

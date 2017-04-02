@@ -10,6 +10,7 @@
 
 #import "AVCamCameraViewController.h"
 #import "AVCamPreviewView.h"
+#import "UIOverlayView.h"
 #import "ImageHelper.h"
 
 static void * SessionRunningContext = &SessionRunningContext;
@@ -71,6 +72,7 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 
 // Session management.
 @property (nonatomic, weak) IBOutlet AVCamPreviewView *previewView;
+@property (weak, nonatomic) IBOutlet UIOverlayView *overlayView;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *captureModeControl;
 
 @property (nonatomic) AVCamSetupResult setupResult;
@@ -118,7 +120,7 @@ NSString *searchString;
 	
     // Create the AVCaptureSession.
     self.session = [[AVCaptureSession alloc] init];
-	
+        
     // Create a device discovery session.
     NSArray<AVCaptureDeviceType> *deviceTypes = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInDuoCamera];
     self.videoDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:deviceTypes mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionUnspecified];
@@ -248,7 +250,7 @@ NSString *searchString;
 
 - (BOOL)shouldAutorotate
 {
-    return true;
+    return false;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
@@ -261,7 +263,7 @@ NSString *searchString;
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 	
     UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-	
+    
     if ( UIDeviceOrientationIsPortrait( deviceOrientation ) || UIDeviceOrientationIsLandscape( deviceOrientation ) ) {
         self.previewView.videoPreviewLayer.connection.videoOrientation = (AVCaptureVideoOrientation)deviceOrientation;
     }
@@ -705,31 +707,63 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         NSLog(@"Error getting image context");
         return;
     }
-	
+    
     size_t width = CGImageGetWidth(imageRef);
     size_t height = CGImageGetHeight(imageRef);
-	
+    
     CGRect rect = CGRectMake(0, 0, width, height);
-	
+    
     // Draw image into the context to get the raw image data
     CGContextDrawImage(context, rect, imageRef);
-	
-    // Get a pointer to the data	
-    unsigned char *bitmapData = (unsigned char *) CGBitmapContextGetData(context);
+    
+    // Get a pointer to the data
+    self.bitmapData = (uint32_t *) CGBitmapContextGetData(context);
     
     // Copy the data and release the memory (return memory allocated with new)
     size_t bytesPerRow = CGBitmapContextGetBytesPerRow(context);
     size_t bufferLength = bytesPerRow * height;
     
-    if(!bitmapData) {
+    if(!self.bitmapData) {
         NSLog(@"Error getting bitmap pixel data\n");
     }
     
+    NSLog(@"Pixel %d",self.bitmapData[0]&0xFF);
+
+    //TODO: run vision code here
+    // for(int i = 0; i < width; i++)
+    // {
+    //     for(int j = 0; j < height; j++)
+    //     {
+    //         self.bitmapData[i+j*width] &= 0x30FFFFFF;
+            
+    //         // self.bitmapData[i+j*width]>>=8*((i+j)%4);
+    //         // self.bitmapData[i+j*width] &= 0xFFFFFF00;
+    //         // self.bitmapData[i+j*width] |= 0xFF;
+    //     }
+    // }
+    
+    UIImage* uiImage = [ImageHelper convertBitmapRGBA8ToUIImage:((unsigned char *) self.bitmapData)
+                                                      withWidth:width
+                                                     withHeight:height];
+    
+    CGFloat nativeWidth = CGImageGetWidth(uiImage.CGImage);
+    CGFloat nativeHeight = CGImageGetHeight(uiImage.CGImage);
+    CGRect startFrame = CGRectMake(0.0, 0.0, nativeHeight/2, nativeWidth/2);
+    
+    #define degrees (3.14159265358979323846264338327950/180.0)
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+            self.overlayView.center = CGPointMake(self.overlayView.superview.bounds.size.width/2,
+                             self.overlayView.superview.bounds.size.height/2);
+            
+            self.overlayView.layer.contents = (id) uiImage.CGImage;
+            self.overlayView.layer.frame = startFrame;
+            self.overlayView.layer.affineTransform = CGAffineTransformMakeRotation(90*degrees);
+        });
+
+    #undef degrees
+    
     CGContextRelease(context);
-    
-    NSLog(@"Pixel %d",bitmapData[0]);
-    
-    //free(bitmapData);
 }
 
 @end
