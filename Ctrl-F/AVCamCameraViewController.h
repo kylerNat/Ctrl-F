@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface AVCamCameraViewController : UIViewController <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface AVCamCameraViewController : UIViewController <AVCaptureVideoDataOutputSampleBufferDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @end
